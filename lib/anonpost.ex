@@ -6,7 +6,7 @@ defmodule Anonpost do
   def start(_type, _args) do
 
     children = [
-      {Plug.Cowboy, scheme: :http, plug: Anonpost.SetupRouter, options: [port: 8080]}
+      {Plug.Cowboy, scheme: :http, plug: Anonpost.Router, options: [port: 8080]}
     ]
 
     Logger.info("starting application at http://localhost:8080")
