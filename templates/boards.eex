@@ -20,6 +20,8 @@
 
     <%=File.read!("view/publicate-new-pub.html") %>
    
+
+    <%= %>
  
     <div id="publications"></div>
 

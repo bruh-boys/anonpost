@@ -6,9 +6,15 @@ defmodule Anonpost.Controllers do
   def isOnBoards?(board) ,do: Enum.member?(boards(),board)
 
 
+  @doc """
+    this is for check if the file exists in the public folder
+  """
   def check404Files(path) do
     if File.exists?(path), do: path, else: "view/404.html"
   end
+  @doc """
+  this is going to render a EEx file , with arguments
+  """
   def render(%{status: status} = conn, template, assigns \\ []) do
     body =
       @template_dir
