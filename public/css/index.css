@@ -18,47 +18,15 @@ body {
   padding-top: 10px;
 }
 
-#publicate {
-  padding-top: 10px;
-  background-color: #212121;
-  border-radius: 10px;
-  width: 21em;
-  height: 30em;
-  text-align: center;
-  margin: auto;
-  bottom: 10em;
-}
-#publicate div {
-  padding-top: 10px;
-}
-#publicate div input,
-#publicate div textarea {
-  border: none;
-  border-radius: 5px;
-}
-#publicate div textarea {
-  height: 20em;
-  width: 20em;
-}
-
-#title-publication {
-  font-size: 20px;
-  width: 13.5em;
-}
-
-#submit-bottom {
-  width: 20em;
-  background-color: #df01f8;
-  border: none;
-  height: 30px;
-  font-weight: bold;
-  font-size: 14px;
-}
-
 #line {
   width: 100%;
   height: 1px;
   background-color: black;
+}
+
+#board-animation {
+  z-index: -1;
+  position: relative;
 }
 
 /*# sourceMappingURL=index.css.map */

@@ -1,0 +1,42 @@
+#publicate {
+    padding-top: 10px;
+  background-color: rgb(33, 33, 33);
+  border-radius: 10px;
+  width: 21em;
+  height: 30em;
+  text-align: center;
+  margin: auto;
+  bottom: 10em;
+
+  div {
+    padding-top: 10px;
+    input,
+    textarea {
+    
+      border:none;
+      border-radius: 5px;
+    }
+    textarea{
+        height: 20em;
+        width: 20em;
+
+    }
+
+  }
+
+}
+
+#title-publication{
+    font-size: 20px;
+    width: 13.5em;
+
+}
+#submit-bottom{
+    width: 20em;
+    background-color: rgb(223, 1, 248);
+    border:none;
+    
+    height: 30px;
+    font-weight: bold;
+    font-size: 14px;
+}

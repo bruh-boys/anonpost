@@ -8,6 +8,7 @@
         <%= board_title%>
     </title>
     <link rel="stylesheet" href="/public/css/index.css" />
+    <link rel="stylesheet" href="/public/css/publicate.css" />
 </head>
 <body>
 
@@ -16,10 +17,47 @@
         <h1>
             <%= board_title%>
         </h1>
+        <canvas id="board-animation"></canvas>
+    <script >
+    let canvas=document.getElementById("board-animation");
+    const ctx=canvas.getContext("2d") ;
+    const params=new URLSearchParams(window.location.search);
+    window.addEventListener("resize", (e) => {
+        canvas.width=window.innerWidth;
+        canvas.height=window.innerHeight;
+        ctx.fillStyle = "rgba(0,0,0,0)";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+
+    })
+
+    setInterval(() => {
+        let width=canvas.width/2;
+        let height=canvas.height/2;
+
+        for(let i=0;i<=100;i++){
+            ctx.beginPath();
+            ctx.fillStyle = `rgba(${Math.floor(Math.random()*255)},${Math.floor(Math.random()*255)},${Math.floor(Math.random()*255)},0.25)`;
+            ctx.strokeStyle="#000"
+
+            ctx.fillText(params.get("board"),Math.floor(Math.random()*canvas.width),Math.floor(Math.random()*canvas.height));
+            ctx.stroke()
+        }
+        for(let i=0;i<=10;i++){
+            ctx.beginPath();
+            ctx.fillStyle = `rgba(${Math.floor(Math.random()*255)},${Math.floor(Math.random()*255)},${Math.floor(Math.random()*255)},0.70)`;
+            ctx.strokeStyle="#000"
+            ctx.font = '50px sans-serif';
+            ctx.fillText(params.get("board"),Math.floor(width-10+Math.random()*20),Math.floor(width-10+Math.random()*20),200);
+            ctx.stroke()
+        }
+    },100)
+    </script>
     </div>
 
 
     <div id="container">
+
     <div>
         <div id="publicate">
         <h1>publicate something</h1>
@@ -35,15 +73,14 @@
             </form>
         </div>
     </div>
-    <div>
-        <div id="line">
-
-        </div>
-    </div>
-    <div>
-    <div id="publications"></div>
-    </div>
-    </div>
+    <!--line-->
+    <div><div id="line"></div></div>
+    <!--posts-->
+    <div><div id="publications"></div></div>
+    <!--line-->
+     <div><div id="line"></div></div>
     <div id="index"></div>
+    </div>
+
 </body>
 </html>
