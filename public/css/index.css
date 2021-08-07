@@ -23,9 +23,15 @@ body {
   margin: auto;
   bottom: 10em;
 }
-#publicate input, #publicate textarea {
+#publicate div {
+  padding-top: 10px;
+}
+#publicate div input,
+#publicate div textarea {
   width: 20em;
-  top: 80px;
+}
+#publicate div textarea {
+  height: 20em;
 }
 
 /*# sourceMappingURL=index.css.map */

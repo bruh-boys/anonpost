@@ -1,39 +1,37 @@
-$font-color:#fff;
-body{
-    background-color: #000;
+$font-color: #fff;
+body {
+  background-color: #000;
 
-    
-    color:$font-color;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: $font-color;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-#title{
-
-    color:$font-color;
-    font-size: 30px;
-    text-align: center;
+#title {
+  color: $font-color;
+  font-size: 30px;
+  text-align: center;
 }
-#container{
-    height: 100vw;
-    background-color: rgb(20, 20, 20);
-
-
+#container {
+  height: 100vw;
+  background-color: rgb(20, 20, 20);
 }
 
-#publicate{
-    background-color: rgb(33, 33, 33);
-    width:21em;
-    height: 30em;
-    text-align: center;
-    margin:auto;
-    bottom: 10em;
-    
-    input ,textarea{
-        
-        
-        width:20em;
-       top:80px;
-        
+#publicate {
+  background-color: rgb(33, 33, 33);
+  width: 21em;
+  height: 30em;
+  text-align: center;
+  margin: auto;
+  bottom: 10em;
+
+  div {
+    padding-top: 10px;
+    input,
+    textarea {
+      width: 20em;
     }
-
+    textarea{
+        height: 20em;
+    }
+  }
 }

@@ -23,11 +23,14 @@
         <div id="publicate">
         <h1>publicate something</h1>
             <form action="<%=req_url%>" method="post">
+              <div>
               <input type="text" name="title" placeholder="title"  /><br>
+              </div><div>
               <textarea name="content" placeholder="content" ></textarea><br>
-
-
+              </div>
+               <div>
               <input type="submit" value="submit" /><br>
+            </div>
             </form>
         </div>
 
