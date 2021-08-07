@@ -7,30 +7,34 @@
     <title>
         <%= board_title%>
     </title>
+    <link rel="stylesheet" href="/public/css/index.css" />
 </head>
 <body>
 
-    <div>
+
+    <div id="title">
         <h1>
             <%= board_title%>
         </h1>
     </div>
 
 
+    <div id="container">
+        <div id="publicate">
+        <h1>publicate something</h1>
+            <form action="<%=req_url%>" method="post">
+              <input type="text" name="title" placeholder="title"  /><br>
+              <textarea name="content" placeholder="content" ></textarea><br>
 
-    <div id="publicate">
-        <form action="<%=req_url%>" method="post">
-          <input type="text" name="title" placeholder="title" />
-          <input type="text" name="content" placeholder="content" />
 
-          <input type="submit" value="submit" />
-        </form>
+              <input type="submit" value="submit" /><br>
+            </form>
+        </div>
+
+
+
+        <div id="publications"></div>
     </div>
-
-    <%= %>
-
-    <div id="publications"></div>
-
     <div id="index"></div>
 </body>
 </html>

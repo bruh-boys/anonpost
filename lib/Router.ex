@@ -1,15 +1,13 @@
 defmodule Anonpost.Router do
-
-  alias Plug.Conn.Query , as: Query
   use Plug.Router
-
-  plug(:match)
-  plug(:dispatch)
+  alias Plug.Conn.Query, as: Query
 
   plug(Plug.Parsers,
     parsers: [:urlencoded, :multipart]
-
   )
+
+  plug(:match)
+  plug(:dispatch)
 
   use Plug.ErrorHandler
 
@@ -45,12 +43,9 @@ defmodule Anonpost.Router do
   end
 
   post "/board" do
-    # i need to
 
-    IO.inspect(conn)
-    IO.inspect(conn.query_params)
-    IO.inspect(conn.body_params)
-    Plug.Parsers.URLENCODED
+
+
     conn |> send_resp(200, Kernel.inspect(conn.params))
   end
 
