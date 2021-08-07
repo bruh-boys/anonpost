@@ -1,6 +1,7 @@
 defmodule Anonpost.Controllers do
-  @spec check404Files(binary) :: binary
   @template_dir  "templates"
+  @spec check404Files(binary) :: binary
+
   def boards(), do:  ["haskell","elixir","github","programming","bruh boys"]
 
   def isOnBoards?(board) ,do: Enum.member?(boards(),board)
@@ -12,6 +13,8 @@ defmodule Anonpost.Controllers do
   def check404Files(path) do
     if File.exists?(path), do: path, else: "view/404.html"
   end
+
+
   @doc """
   this is going to render a EEx file , with arguments
   """
