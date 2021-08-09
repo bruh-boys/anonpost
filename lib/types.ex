@@ -1,4 +1,7 @@
 defmodule Anonpost.Types do
+  defmacro __using__(_)do
+
+  end
   defmodule Publ do
     defstruct username: "anon",
               title: "404 not found",

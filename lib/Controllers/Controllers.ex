@@ -1,12 +1,14 @@
 defmodule Anonpost.Controllers do
 
-  alias Plug.Conn.Query, as: Query
+
   alias Anonpost.Controllers.Stuff, as: Stuff
+  alias Anonpost.Types , as: Types
 
-
+  @spec query_get_board(Plug.Conn.t()) :: Plug.Conn.t()
   def query_get_board(conn) do
     # we get the params
-    params = Query.decode(conn.query_string)
+
+    params = conn.params
     # then we get the actual board
     board = params["board"]
     # and now we check if is on board
@@ -23,7 +25,21 @@ defmodule Anonpost.Controllers do
       Plug.Conn.send_file(conn, 404, "./view/404.html")
     end
   end
+  @moduledoc """
+  this is for upload the posts
+  """
+  @spec upload(Plug.Conn.t()) :: Plug.Conn.t()
+  def upload(conn)do
+    IO.inspect(conn.params)
+    unless Enum.member?(Map.values(conn.params), "") or !Stuff.isOnBoards?(conn.params["board"]) do
+      Types.get_request_attrs(conn)
+      conn |> Plug.Conn.send_resp(200, "everything is okay")
+    else
+      conn |> Plug.Conn.send_file(404, "./view/404.html")
+    end
 
+  end
+  @spec public_files(Plug.Conn.t()) :: Plug.Conn.t()
   def public_files(conn) do
     # this is for get get the files
     conn |> Plug.Conn.send_file(200, Stuff.check404Files("." <> conn.request_path))

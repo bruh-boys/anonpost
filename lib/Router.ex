@@ -28,13 +28,8 @@ defmodule Anonpost.Router do
   end
 
   post "/board" do
+    Controll.upload(conn)
 
-    unless Enum.member?(Map.values(conn.params), "") do
-      Anonpost.Types.get_request_attrs(conn)
-      conn |> send_resp(200, "everything is okay")
-    else
-      conn |> send_file(404, "./view/404.html")
-    end
   end
 
   match _ do
