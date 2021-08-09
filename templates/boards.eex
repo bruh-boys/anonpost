@@ -26,10 +26,13 @@
         <div id="publicate">
         <h1>publicate something</h1>
             <form action="<%=req_url%>" method="post">
+             <div>
+             <input type="text" name="username" placeholder="username" id="username"  /><br>
+             </div>
               <div>
               <input type="text" name="title" placeholder="title" id="title-publication"  /><br>
               </div><div>
-              <textarea name="content" placeholder="content" ></textarea><br>
+              <textarea name="body" placeholder="body" ></textarea><br>
               </div>
                <div>
               <input type="submit" id="submit-bottom" value="submit" /><br>
