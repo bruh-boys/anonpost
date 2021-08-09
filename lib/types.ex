@@ -12,10 +12,12 @@ defmodule Anonpost.Types do
 
   def get_request_attrs(conn) do
     params = conn.params
+    username = String.trim(params["username"])
 
     %Publ{
       _id: BSON.ObjectId.encode!(Mongo.IdServer.new()),
-      username: params["username"],
+      username: (if username == "" , do: "anon" ,else:  username=,
+
       title: params["title"],
       body: params["body"]
     }

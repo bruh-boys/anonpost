@@ -31,9 +31,9 @@ defmodule Anonpost.Controllers do
   def upload(conn) do
 
     board=conn.params["board"]
-
-    unless Enum.member?(Map.values(conn.params), "") or !Stuff.isOnBoards?(conn.params["board"]) do
-      params=Types.get_request_attrs(conn)
+    params=Types.get_request_attrs(conn)
+    unless Enum.member?(Map.values(params), "") or !Stuff.isOnBoards?(conn.params["board"]) do
+      IO.inspect(params)
 
       DB.upload_to_db(params,board)
 
