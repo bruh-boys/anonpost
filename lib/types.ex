@@ -1,9 +1,10 @@
 defmodule Anonpost.Types do
-  defmacro __using__(_)do
-
+  defmacro __using__(_) do
   end
+
   defmodule Publ do
-    defstruct username: "anon",
+    defstruct _id: "000000000000",
+              username: "anon",
               title: "404 not found",
               body: "404 not found",
               comments: []
@@ -12,8 +13,11 @@ defmodule Anonpost.Types do
   def get_request_attrs(conn) do
     params = conn.params
 
-    %Publ{username: params["username"], title: params["title"], body: params["body"]}
-
-
+    %Publ{
+      _id: BSON.ObjectId.encode!(Mongo.IdServer.new()),
+      username: params["username"],
+      title: params["title"],
+      body: params["body"]
+    }
   end
 end
