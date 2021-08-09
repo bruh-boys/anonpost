@@ -16,7 +16,9 @@
     <div id="title">
 
         <canvas id="board-animation" height=800></canvas>
-        <script src="/public/script/canvasAnimation.js" ></script>
+        <script src="/public/script/canvasAnimation.js" >
+        coolAnimation(params.get("board"))
+        </script>
     </div>
 
 

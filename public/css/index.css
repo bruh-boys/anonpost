@@ -11,7 +11,7 @@ body {
 }
 
 #container {
-  height: 99vh;
+  min-height: 99vh;
   background-color: #141414;
 }
 #container div {

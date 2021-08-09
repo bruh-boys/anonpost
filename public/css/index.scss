@@ -12,7 +12,7 @@ body {
   text-align: center;
 }
 #container {
-  height: 99vh;
+  min-height: 99vh;
   background-color: rgb(20, 20, 20);
   div{
     padding-top: 10px;
