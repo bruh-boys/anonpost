@@ -45,11 +45,44 @@
     <!--line-->
     <div><div id="line"></div></div>
     <!--posts-->
-    <div><div id="publications"></div></div>
+    <div><div id="publications">
+
+    <!-- %{
+          comments: %{
+            "$size" => "$comments"
+          },
+          title: "$title",
+          username: "$username"
+        }
+      -->
+      <div id="post-container">
+        <div id="post">
+        <%=Enum.map(publications,fn i ->%>
+
+          <h1>
+              <a href="<%=i["_id"]%>">
+                  <%=i["title"]%>
+              </a>
+          </h1>
+          <h1>
+          <span style="font-size: 10px;">
+              <%=i["username"]%>
+
+          </span>
+          <%=i["comments"]%>  <img src="https://enertronic.es/wp-content/uploads/2015/03/contact-icon-comment.png" width=30>
+
+          </h1>
+
+        <%end) %>
+        </div>
+      </div>
+    </div></div>
     <!--line-->
      <div><div id="line"></div></div>
     <div id="index"></div>
     </div>
 
+
+      <footer align="center"> © ranon-rat 2021 </footer>
 </body>
 </html>

@@ -15,7 +15,25 @@ defmodule Anonpost.Database do
     conn |> Mongo.insert_one!(board, pubMap)
   end
 
+  def get_publications(board) do
+    conn = get_connection()
+
+    conn
+    |> Mongo.aggregate(board, [
+      %{
+        "$project" => %{
+          comments: %{
+            "$size" => "$comments"
+          },
+          title: "$title",
+          username: "$username"
+        }
+      }
+    ])
+    |> Enum.to_list()
+  end
+
   defp struct_to_map(publ) do
-    publ |> Map.from_struct
+    publ |> Map.from_struct()
   end
 end

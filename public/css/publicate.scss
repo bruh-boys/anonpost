@@ -1,6 +1,8 @@
+$color-divs:rgb(49, 49, 49);
+$color-button:rgb(223, 1, 248);
 #publicate {
-    padding-top: 10px;
-  background-color: rgb(33, 33, 33);
+  padding-top: 10px;
+  background-color: $color-divs;
   border-radius: 10px;
   width: 21em;
   height: 30em;
@@ -12,31 +14,39 @@
     padding-top: 10px;
     input,
     textarea {
-         
-      border:none;
+      border: none;
       border-radius: 5px;
     }
-    textarea{
-        height: 20em;
-        width: 20em;
-
+    textarea {
+      height: 20em;
+      width: 20em;
     }
-
   }
-
 }
 
-#title-publication{
-    font-size: 20px;
-    width: 13.5em;
-
+#title-publication {
+  font-size: 20px;
+  width: 13.5em;
 }
-#submit-bottom{
+#submit-bottom {
+  width: 20em;
+  background-color: $color-button;
+  border: none;
+
+  height: 30px;
+  font-weight: bold;
+  font-size: 14px;
+}
+#post-container {
+  padding-left: 10px;
+  #post {
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 10px;
+    border-color:$color-divs;
     width: 20em;
-    background-color: rgb(223, 1, 248);
-    border:none;
-    
-    height: 30px;
-    font-weight: bold;
-    font-size: 14px;
+    background-color: $color-divs
+  }
 }
+
+

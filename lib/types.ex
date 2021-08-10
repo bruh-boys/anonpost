@@ -16,7 +16,7 @@ defmodule Anonpost.Types do
 
     %Publ{
       _id: BSON.ObjectId.encode!(Mongo.IdServer.new()),
-      username: (if username == "" , do: "anon" ,else:  username=,
+      username: (if username == "" , do: "anon" ,else:  username),
 
       title: params["title"],
       body: params["body"]

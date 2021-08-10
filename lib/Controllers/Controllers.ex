@@ -15,9 +15,12 @@ defmodule Anonpost.Controllers do
     # then we send a file with a template
     # or send a 404 response
     if isOn do
+
+
       Stuff.render(conn, "boards.eex",
         board_title: board,
-        req_url: "#{conn.request_path}?#{conn.query_string}"
+        req_url: "#{conn.request_path}?#{conn.query_string}",
+        publications: DB.get_publications(board)
       )
     else
       Plug.Conn.send_file(conn, 404, "./view/404.html")
@@ -29,13 +32,13 @@ defmodule Anonpost.Controllers do
   """
   @spec upload(Plug.Conn.t()) :: Plug.Conn.t()
   def upload(conn) do
+    board = conn.params["board"]
+    params = Types.get_request_attrs(conn)
 
-    board=conn.params["board"]
-    params=Types.get_request_attrs(conn)
     unless Enum.member?(Map.values(params), "") or !Stuff.isOnBoards?(conn.params["board"]) do
       IO.inspect(params)
 
-      DB.upload_to_db(params,board)
+      DB.upload_to_db(params, board)
 
       conn |> Plug.Conn.send_resp(200, "everything is okay")
     else
