@@ -1,5 +1,4 @@
 .sass-cache/
-*.css.map
 *.sass.map
 *.scss.map
 deps/
@@ -8,3 +7,5 @@ _build/
 deps/
 _build/
 _build/
+
+lib/public/css/
