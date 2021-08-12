@@ -8,4 +8,4 @@ deps/
 _build/
 _build/
 
-lib/public/css/
+public/css/
