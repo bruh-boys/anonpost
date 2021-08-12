@@ -18,12 +18,19 @@ defmodule Anonpost.Controllers.Stuff do
   this is going to render a EEx file , with arguments
   """
   def render(%{status: status} = conn, template, assigns \\ []) do
-    body =
-      @template_dir
+    IO.inspect (template)
+    IO.inspect (assigns)
+
+    body = @template_dir
       |> Path.join(template)
       |> String.replace_suffix(".html", ".html.eex")
       |> EEx.eval_file(assigns)
 
-    Plug.Conn.send_resp(conn, status || 200, body)
+    IO.inspect([template: body] ++ assigns)
+    renderedFile = @template_dir
+      |> Path.join("main.eex")
+      |> EEx.eval_file([template: body] ++ assigns)
+
+    Plug.Conn.send_resp(conn, status || 200, renderedFile)
   end
 end

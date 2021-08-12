@@ -20,8 +20,12 @@ defmodule Anonpost.Controllers do
       Stuff.render(conn, "boards.eex",
         board_title: board,
         req_url: "#{conn.request_path}?#{conn.query_string}",
-        publications: DB.get_publications(board)
+        publications: DB.get_publications(board),
+        customCSSHeaders: [],
+        customScriptHeaders: [],
+        customScriptBody: []
       )
+
     else
       Plug.Conn.send_file(conn, 404, "./view/404.html")
     end

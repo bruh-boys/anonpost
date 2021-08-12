@@ -29,7 +29,6 @@ defmodule Anonpost.Router do
 
   post "/board" do
     Controll.upload(conn)
-
   end
 
   match _ do
