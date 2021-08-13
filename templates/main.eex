@@ -4,12 +4,14 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AnonPos</title>
+  <title>AnonPost</title>
 
+  <!-- Auto import custom css headers -->
   <%= Enum.map(customCSSHeaders, fn elem -> %>
-      <link rel="stylesheet" href="/public/css/<%= elem %>.css">
+    <link rel="stylesheet" href="/public/css/<%= elem %>.css">
   <% end) %>
 
+  <!-- Auto import custom scripts headers -->
   <%= Enum.map(customScriptHeaders, fn elem -> %>
     <link rel="stylesheet" href="/public/script/<%= elem %>.js">
   <% end) %>
@@ -17,14 +19,15 @@
 </head>
 <body>
 
+  <!-- Auto Import template eex -->
   <main>
     <%= template %>
   </main>
 
-
+  <!-- Auto import custom scripts body -->
   <%= Enum.map(customScriptBody, fn elem -> %>
     <script src="/public/script/<%= elem %>"></script>
   <% end) %>
-  
+
 </body>
 </html>

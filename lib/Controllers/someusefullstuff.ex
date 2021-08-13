@@ -1,9 +1,16 @@
 defmodule Anonpost.Controllers.Stuff do
   @template_dir "templates"
 
-  def boards(), do: ["haskell", "elixir", "github", "programming", "bruh boys"]
+  def validboards(), do: %{
+    "animals" => "a",
+    "games" => "d",
+    "languages" => "b",
+    "programming" => "a",
+    "technology" => "b",
+    "science" => "c"
+  }
 
-  def isOnBoards?(board), do: Enum.member?(boards(), board)
+  def isOnBoards?(board), do: Enum.member?(Map.keys(validboards()), board)
 
 
   @doc """
@@ -18,15 +25,11 @@ defmodule Anonpost.Controllers.Stuff do
   this is going to render a EEx file , with arguments
   """
   def render(%{status: status} = conn, template, assigns \\ []) do
-    IO.inspect (template)
-    IO.inspect (assigns)
-
     body = @template_dir
-      |> Path.join(template)
+      |> Path.join(template <> ".eex")
       |> String.replace_suffix(".html", ".html.eex")
       |> EEx.eval_file(assigns)
 
-    IO.inspect([template: body] ++ assigns)
     renderedFile = @template_dir
       |> Path.join("main.eex")
       |> EEx.eval_file([template: body] ++ assigns)
