@@ -7,9 +7,9 @@ defmodule Anonpost.Controllers do
   def query_get_board(conn) do
     # we get the params
 
-    params = conn.params
+    params = IO.inspect(conn.params)
     # then we get the actual board
-    board = params["board"]
+    board = IO.inspect(params["board"])
     # and now we check if is on board
 
     isOn = Stuff.isOnBoards?(board)
@@ -42,15 +42,37 @@ defmodule Anonpost.Controllers do
 
       DB.upload_to_db(params, board)
 
-      conn |> Plug.Conn.send_resp(200, "everything is okay")
+      conn
+      |> Plug.Conn.send_resp(200, "everything is okay")
     else
-      conn |> Plug.Conn.send_file(404, "./view/404.html")
+      conn
+      |> Plug.Conn.send_file(404, "./view/404.html")
     end
   end
 
   @spec public_files(Plug.Conn.t()) :: Plug.Conn.t()
   def public_files(conn) do
     # this is for get get the files
-    conn |> Plug.Conn.send_file(200, Stuff.check404Files("." <> conn.request_path))
+    conn
+    |> Plug.Conn.send_file(200, Stuff.check404Files("." <> conn.request_path))
+  end
+
+  def getPost(conn) do
+    params = conn.params
+
+    # Gets the post of a specific board.
+    post = DB.getPost(%{
+      board: params["board"],
+      id: params["id"]
+    })
+
+    # Temporarily only responds if its correct.
+    if post do
+      conn
+      |> Plug.Conn.send_resp(200, "correct")
+    else
+      conn
+      |> Plug.Conn.send_file(404, "./view/404.html")
+    end
   end
 end
