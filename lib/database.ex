@@ -16,9 +16,7 @@ defmodule Anonpost.Database do
   end
 
   def get_publications(board) do
-    conn = get_connection()
-
-    conn
+    get_connection()
     |> Mongo.aggregate(board, [
       %{
         "$project" => %{
@@ -36,4 +34,13 @@ defmodule Anonpost.Database do
   defp struct_to_map(publ) do
     publ |> Map.from_struct()
   end
+
+  # Gets the post of a specific board.
+  def getPost(%{board: board, id: id}) when board != nil and id != nil do
+    get_connection()
+      |> Mongo.find_one(board, %{_id: id})
+  end
+
+  # If first function fails, this is executed and returns nil.
+  def getPost(%{}), do: nil
 end

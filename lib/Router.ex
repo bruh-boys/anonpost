@@ -33,6 +33,10 @@ defmodule Anonpost.Router do
     Controll.upload(conn)
   end
 
+  get "/post" do
+    Controll.getPost(conn)
+  end
+
   match _ do
     conn |> send_file(404, "./view/404.html")
   end
