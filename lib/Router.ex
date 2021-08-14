@@ -13,10 +13,12 @@ defmodule Anonpost.Router do
   use Plug.ErrorHandler
 
   get "/" do
-    # the home route
     conn
-    |> put_resp_content_type("text/html")
-    |> send_file(200, "./view/home.html")
+      |> Controll.Stuff.render("home",
+      customCSSHeaders: ["index"],
+      customScriptHeaders: [],
+      customScriptBody: []
+    )
   end
 
   get "/public/*_file" do

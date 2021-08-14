@@ -1,53 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        <%= board_title%>
-    </title>
-    <link rel="stylesheet" href="/public/css/index.css" />
-    <link rel="stylesheet" href="/public/css/publicate.css" />
-</head>
-<body>
+<div id="title">
+  <canvas id="board-animation" height=800></canvas>
+
+  <script src="/public/script/canvasAnimation.js">
+    coolAnimation(params.get("board"))
+  </script>
+</div>
 
 
-    <div id="title">
+<div id="container">
+  <div>
+    <div id="publicate">
+      <h1>publicate something</h1>
 
-        <canvas id="board-animation" height=800></canvas>
-        <script src="/public/script/canvasAnimation.js" >
-        coolAnimation(params.get("board"))
-        </script>
-    </div>
-
-
-    <div id="container">
-
-    <div>
-        <div id="publicate">
-        <h1>publicate something</h1>
-            <form action="<%=req_url%>" method="post">
-             <div>
-             <input type="text" name="username" placeholder="username" id="username"  /><br>
-             </div>
-              <div>
-              <input type="text" name="title" placeholder="title" id="title-publication"  /><br>
-              </div><div>
-              <textarea name="body" placeholder="body" ></textarea><br>
-              </div>
-               <div>
-              <input type="submit" id="submit-bottom" value="submit" /><br>
-            </div>
-            </form>
+      <form action="<%=req_url%>" method="post">
+        <div>
+          <input type="text" name="username" placeholder="username" id="username" /><br>
         </div>
-    </div>
-    <!--line-->
-    <div><div id="line"></div></div>
-    <!--posts-->
-    <div><div id="publications">
 
-    <!-- %{
+        <div>
+          <input type="text" name="title" placeholder="title" id="title-publication" /><br>
+        </div>
+
+        <div>
+          <textarea name="body" placeholder="body"></textarea><br>
+        </div>
+
+        <div>
+          <input type="submit" id="submit-bottom" value="submit" /><br>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+  <!--line-->
+  <div>
+    <div id="line"></div>
+  </div>
+
+
+  <!--posts-->
+  <div>
+    <div id="publications">
+      <!-- %{
           comments: %{
             "$size" => "$comments"
           },
@@ -57,32 +52,37 @@
       -->
       <div id="post-container">
         <div id="post">
-        <%=Enum.map(publications,fn i ->%>
-
-          <h1>
-              <a href="<%=i["_id"]%>">
+          <%= Enum.map(publications,fn i -> %>
+            <div class="postContainer">
+              <h1>
+                <a href="<%=i[" _id"]%>">
                   <%=i["title"]%>
-              </a>
-          </h1>
-          <h1>
-          <span style="font-size: 10px;">
-              <%=i["username"]%>
+                </a>
+              </h1>
 
-          </span>
-          <%=i["comments"]%>  <img src="https://enertronic.es/wp-content/uploads/2015/03/contact-icon-comment.png" width=30>
+              <h1>
+                <span style="font-size: 10px;">
+                  <%=i["username"]%>
+                </span>
 
-          </h1>
-
-        <%end) %>
+                <%=i["comments"]%>
+                <img src="https://enertronic.es/wp-content/uploads/2015/03/contact-icon-comment.png"width=30>
+              </h1>
+            </div>
+            <% end) %>
         </div>
       </div>
-    </div></div>
-    <!--line-->
-     <div><div id="line"></div></div>
-    <div id="index"></div>
     </div>
+  </div>
 
 
-      <footer align="center"> © ranon-rat 2021 </footer>
-</body>
-</html>
+  <!--line-->
+  <div>
+    <div id="line"></div>
+  </div>
+
+
+  <div id="index"></div>
+</div>
+
+<footer align="center"> © ranon-rat 2021 </footer>

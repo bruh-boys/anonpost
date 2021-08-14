@@ -2,6 +2,7 @@ defmodule Anonpost.Controllers do
   alias Anonpost.Controllers.Stuff, as: Stuff
   alias Anonpost.Types, as: Types
   alias Anonpost.Database, as: DB
+
   @spec query_get_board(Plug.Conn.t()) :: Plug.Conn.t()
   def query_get_board(conn) do
     # we get the params
@@ -15,17 +16,14 @@ defmodule Anonpost.Controllers do
     # then we send a file with a template
     # or send a 404 response
     if isOn do
-
-
-      Stuff.render(conn, "boards.eex",
+      Stuff.render(conn, "boards",
         board_title: board,
         req_url: "#{conn.request_path}?#{conn.query_string}",
         publications: DB.get_publications(board),
-        customCSSHeaders: [],
+        customCSSHeaders: ["index", "publicate"],
         customScriptHeaders: [],
         customScriptBody: []
       )
-
     else
       Plug.Conn.send_file(conn, 404, "./view/404.html")
     end
