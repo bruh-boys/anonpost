@@ -1,0 +1,57 @@
+@import "vars.scss";
+
+@import "default.scss";
+
+
+.mainContainer {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 40px 90vh 40px;
+  grid-template-areas:
+    "menu"
+    "dynamicContainer"
+    "footer"
+  ;
+
+  .menu {
+    background-color: $secondary_background;
+    font-size: 20px;
+    grid-area: menu;
+
+    #navbar {
+      min-height: 40px;
+      max-height: 40px;
+      background-color: $secondary_background;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: auto;
+      grid-template-rows: auto;
+      grid-template-areas:
+        "home"
+      ;
+
+      .button {
+        text-align: center;
+        align-self: center;
+      }
+    }
+
+    .sticky {
+      position: fixed;
+      top: 0;
+      width: 100%;
+    }
+  }
+
+  .dynamicContainer {
+    grid-area: dynamicContainer;
+  }
+
+  footer {
+    font-size: 20px;
+    background-color: $secondary_background;
+    grid-area: footer;
+    padding-top: 10px;
+    text-align: center;
+  }
+}
