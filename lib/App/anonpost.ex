@@ -1,4 +1,4 @@
-defmodule Anonpost do
+defmodule Anonpost.App do
 
   use Application
   require Logger

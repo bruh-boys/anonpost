@@ -1,6 +1,7 @@
 defmodule Anonpost.Controllers do
-  alias Anonpost.Controllers.Stuff, as: Stuff
-  alias Anonpost.Types, as: Types
+  alias Anonpost.Controllers.Render, as: Render
+  alias Anonpost.Validation, as: Valid
+  alias Anonpost.Domain.Post, as: Post
   alias Anonpost.Database, as: DB
 
   @spec query_get_board(Plug.Conn.t()) :: Plug.Conn.t()
@@ -12,11 +13,11 @@ defmodule Anonpost.Controllers do
     board = IO.inspect(params["board"])
     # and now we check if is on board
 
-    isOn = Stuff.isOnBoards?(board)
+    isOn = Valid.isOnBoards?(board)
     # then we send a file with a template
     # or send a 404 response
     if isOn do
-      Stuff.render(conn, "boards",
+      Render.render(conn, "boards",
         board_title: board,
         req_url: "#{conn.request_path}?#{conn.query_string}",
         publications: DB.get_publications(board),
@@ -35,13 +36,9 @@ defmodule Anonpost.Controllers do
   @spec upload(Plug.Conn.t()) :: Plug.Conn.t()
   def upload(conn) do
     board = conn.params["board"]
-    params = Types.get_request_attrs(conn)
-
-    unless Enum.member?(Map.values(params), "") or !Stuff.isOnBoards?(conn.params["board"]) do
-      IO.inspect(params)
-
+    params = Post.getAttr(conn)
+    unless Enum.member?(Map.values(params), "") or !Valid.isOnBoards?(conn.params["board"]) do
       DB.upload_to_db(params, board)
-
       conn
       |> Plug.Conn.send_resp(200, "everything is okay")
     else
@@ -54,17 +51,18 @@ defmodule Anonpost.Controllers do
   def public_files(conn) do
     # this is for get get the files
     conn
-    |> Plug.Conn.send_file(200, Stuff.check404Files("." <> conn.request_path))
+    |> Plug.Conn.send_file(200, Valid.check404Files("." <> conn.request_path))
   end
 
   def getPost(conn) do
     params = conn.params
 
     # Gets the post of a specific board.
-    post = DB.getPost(%{
-      board: params["board"],
-      id: params["id"]
-    })
+    post =
+      DB.getPost(%{
+        board: params["board"],
+        id: params["id"]
+      })
 
     # Temporarily only responds if its correct.
     if post do
