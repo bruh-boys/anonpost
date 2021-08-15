@@ -1,7 +1,7 @@
 defmodule Anonpost.Router do
   use Plug.Router
 
-  alias Anonpost.Controllers.Render, as: Render
+  alias Anonpost.Controllers.Response , as: Resp
   alias Anonpost.Controllers, as: Controll
   plug(Plug.Parsers,
     parsers: [:urlencoded, :multipart]
@@ -14,7 +14,7 @@ defmodule Anonpost.Router do
 
   get "/" do
     conn
-      |> Render.render("home",
+      |> Resp.render("home",
       customCSSHeaders: ["index"],
       customScriptHeaders: [],
       customScriptBody: []

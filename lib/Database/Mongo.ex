@@ -14,7 +14,7 @@ defmodule Anonpost.Database.MongoDB do
     conn
     |> Mongo.insert_one!(
       board,
-      publ |> Map.put("_id", BSON.ObjectId.encode!(Mongo.IdServer.new()))
+      publ |> Map.put(:_id ,BSON.ObjectId.encode!(Mongo.IdServer.new()))
     )
   end
 
