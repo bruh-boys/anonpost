@@ -35,7 +35,7 @@ defmodule Anonpost.Database.MongoDB do
   end
 
   # Gets the post of a specific board.
-  def getPost(%{board: board, id: id}) do
+  def get_post(%{board: board, id: id}) do
     get_connection()
     |> Mongo.find_one(board, %{_id: id})
   end

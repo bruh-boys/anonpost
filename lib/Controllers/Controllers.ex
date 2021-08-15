@@ -48,23 +48,22 @@ defmodule Anonpost.Controllers do
     end
   end
 
-
   def public_files(conn) do
     # this is for get get the files
     conn
     |> Resp.send_file(200, Valid.check404Files("." <> conn.request_path))
   end
 
-  def getPost(conn) do
+  def get_post(conn) do
     params = conn.params
-
     # Gets the post of a specific board.
     post =
-      DB.getPost(%{
+      DB.get_post(%{
         board: params["board"],
         id: params["id"]
       })
 
+    IO.inspect(conn)
     # Temporarily only responds if its correct.
     if post do
       conn

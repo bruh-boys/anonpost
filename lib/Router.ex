@@ -34,7 +34,7 @@ defmodule Anonpost.Router do
   end
 
   get "/post" do
-    Controll.getPost(conn)
+    Controll.get_post(conn)
   end
 
   match _ do
