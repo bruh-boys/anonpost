@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "es6",
     "module": "commonjs",
-    "outDir": "../scripts",
+    "outDir": "../JS",
     "rootDir": ".",
     "strict": true,
     "esModuleInterop": true,

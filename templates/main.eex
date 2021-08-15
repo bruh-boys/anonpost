@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AnonPost</title>
 
+  <link rel="stylesheet" href="/public/css/main.css">
+
   <!-- Auto import custom css headers -->
   <%= Enum.map(customCSSHeaders, fn elem -> %>
     <link rel="stylesheet" href="/public/css/<%= elem %>.css">
@@ -13,20 +15,38 @@
 
   <!-- Auto import custom scripts headers -->
   <%= Enum.map(customScriptHeaders, fn elem -> %>
-    <link rel="stylesheet" href="/public/script/<%= elem %>.js">
+    <link rel="stylesheet" href="/public/JS/<%= elem %>.js">
   <% end) %>
 
 </head>
 <body>
 
   <!-- Auto Import template eex -->
-  <main>
-    <%= template %>
-  </main>
+  <div class="mainContainer">
+    <div class="menu">
+      <div id="navbar">
+        <div class="button">
+          <a class="home" href="/">Home</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="dynamicContainer">
+      <%= template %>
+    </div>
+
+
+    <footer>
+      <p> &copy bruh-boys </p>
+    </footer>
+  </div>
+
+
+  <script src="/public/JS/navbar.js"></script>
 
   <!-- Auto import custom scripts body -->
   <%= Enum.map(customScriptBody, fn elem -> %>
-    <script src="/public/script/<%= elem %>"></script>
+    <script src="/public/JS/<%= elem %>.js"></script>
   <% end) %>
 
 </body>
