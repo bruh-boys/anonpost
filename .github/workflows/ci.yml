@@ -1,4 +1,4 @@
-name: Elixir
+name: Elixir CI
 
 on:
   push:
@@ -7,8 +7,8 @@ on:
     branches: [main]
 
 jobs:
-  build:
-    name: build v${{matrix.elixir}}
+  test:
+    name: tests (${{matrix.elixir}})
     runs-on: ubuntu-20.04
     strategy:
       matrix:
