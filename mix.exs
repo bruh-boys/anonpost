@@ -14,16 +14,20 @@ defmodule Anonpost.MixProject do
 
   def application do
     [
-      extra_applications: [:logger],
+      extra_applications: extra_applications(Mix.env(), [:logger]),
       mod: {Anonpost.App, []}
     ]
   end
+
+  defp extra_applications(:dev, default), do: default ++ [:remix]
+  defp extra_applications(_, default), do: default
 
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
       {:plug_cowboy, "~> 2.0"},
-      {:mongodb, "~> 0.5.1"}
+      {:mongodb, "~> 0.5.1"},
+      {:remix, "~> 0.0.1", only: :dev}
     ]
   end
 end

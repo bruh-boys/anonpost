@@ -4,7 +4,7 @@ version: "3.9"
 services:
   app:
     container_name: anonpost
-    image: anonpost:1.0
+    image: anonpost:0.1.0
     restart: always
     build: .
     ports:
