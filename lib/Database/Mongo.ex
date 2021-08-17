@@ -4,6 +4,8 @@ defmodule Anonpost.Database.MongoDB do
     this is running in local so if u want to deploy this maybe it could be a little bit insecure
   """
   defp get_connection() do
+    # TODO: use a .env file for loading mongo uri
+    # change "localhost" for "mongodb" when using docker
     {:ok, conn} = Mongo.start_link(url: "mongodb://localhost:27017/anonpost")
     conn
   end
