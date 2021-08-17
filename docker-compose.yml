@@ -1,0 +1,26 @@
+---
+version: "3.9"
+
+services:
+  app:
+    container_name: anonpost
+    image: anonpost:1.0
+    restart: always
+    build: .
+    ports:
+      - 8080:8080
+    depends_on:
+      - mongodb
+
+  mongodb:
+    container_name: anonpost_mongo
+    image: mongo:4.0.26-xenial
+    volumes:
+      - mongo:/data/db:delegated
+    ports:
+      - 27018:27017
+    logging:
+      driver: none
+
+volumes:
+  mongo:

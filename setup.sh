@@ -1,6 +1,3 @@
-mix deps.get
-
-
 cd public/TS
 tsc --build tsconfig.json
 cd ..
