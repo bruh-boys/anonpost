@@ -1,3 +1,10 @@
-<!-- This will change -->
+<div class="container">
+  <header>
+    <h1>Anonpost</h1>
+    <p>Its a simple social network made in elixir</p>
+  </header>
 
-<h1>Anonpost</h1>
+  <main>
+    Prototype
+  </main>
+</div>

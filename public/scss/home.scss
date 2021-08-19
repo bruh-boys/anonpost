@@ -1,0 +1,58 @@
+.mainContainer > .container {
+  align-items: center;
+  grid-area: container;
+  grid-template-columns: 100%;
+  grid-template-rows: 90vh auto;
+  display: grid;
+  grid-template-areas:
+    "header"
+    "main"
+  ;
+
+  header {
+    justify-content: center;
+    text-align: center;
+    grid-area: header;
+    display: grid;
+    grid-template-columns: 80%;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      "title"
+      "about"
+    ;
+
+    h1 {
+      position: relative;
+      animation-name: Welcome;
+      animation-duration: 2s;
+      grid-area: title;
+      font-size: 100px;
+    }
+
+    p {
+      position: relative;
+      animation-name: Welcome;
+      animation-duration: 2s;
+      grid-area: about;
+    }
+  }
+
+  main {
+    grid-area: main;
+  }
+}
+
+
+@keyframes Welcome {
+  0% {
+    left:0px;
+    top:200px;
+    opacity: 0;
+  }
+
+  100% {
+    left:0px;
+    top:0px;
+    opacity: 1;
+  }
+}
