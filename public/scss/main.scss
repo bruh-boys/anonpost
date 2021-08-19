@@ -6,25 +6,27 @@
 .mainContainer {
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: 40px 90vh 40px;
+  grid-template-rows: 40px auto 40px;
+  overflow: auto;
   grid-template-areas:
     "menu"
-    "dynamicContainer"
+    "container"
     "footer"
   ;
 
   .menu {
-    background-color: $secondary_background;
     font-size: 20px;
     grid-area: menu;
 
     #navbar {
       min-height: 40px;
       max-height: 40px;
-      background-color: $secondary_background;
+      backdrop-filter: blur(5px);
+      box-shadow: 0px 1px 6px 0px #000;
+      background-color: $nav_bg;
       overflow: hidden;
       display: grid;
-      grid-template-columns: auto;
+      grid-template-columns: 30px;
       grid-template-rows: auto;
       grid-template-areas:
         "home"
@@ -43,13 +45,9 @@
     }
   }
 
-  .dynamicContainer {
-    grid-area: dynamicContainer;
-  }
-
   footer {
     font-size: 20px;
-    background-color: $secondary_background;
+    background-color: $primary_bg;
     grid-area: footer;
     padding-top: 10px;
     text-align: center;

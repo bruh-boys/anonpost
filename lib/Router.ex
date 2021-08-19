@@ -15,7 +15,7 @@ defmodule Anonpost.Router do
   get "/" do
     conn
       |> Resp.render("home",
-      customCSSHeaders: ["index"],
+      customCSSHeaders: ["home"],
       customScriptHeaders: [],
       customScriptBody: []
     )

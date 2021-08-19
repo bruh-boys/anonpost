@@ -8,12 +8,10 @@
 
   <link rel="stylesheet" href="/public/css/main.css">
 
-  <!-- Auto import custom css headers -->
   <%= Enum.map(customCSSHeaders, fn elem -> %>
     <link rel="stylesheet" href="/public/css/<%= elem %>.css">
   <% end) %>
 
-  <!-- Auto import custom scripts headers -->
   <%= Enum.map(customScriptHeaders, fn elem -> %>
     <link rel="stylesheet" href="/public/JS/<%= elem %>.js">
   <% end) %>
@@ -21,7 +19,6 @@
 </head>
 <body>
 
-  <!-- Auto Import template eex -->
   <div class="mainContainer">
     <div class="menu">
       <div id="navbar">
@@ -31,20 +28,16 @@
       </div>
     </div>
 
-    <div class="dynamicContainer">
-      <%= template %>
-    </div>
-
+    <%= template %>
 
     <footer>
-      <p> &copy bruh-boys </p>
+      <p> &copy bruh-boys 2021</p>
     </footer>
   </div>
 
 
   <script src="/public/JS/navbar.js"></script>
 
-  <!-- Auto import custom scripts body -->
   <%= Enum.map(customScriptBody, fn elem -> %>
     <script src="/public/JS/<%= elem %>.js"></script>
   <% end) %>
