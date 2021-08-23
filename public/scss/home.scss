@@ -1,3 +1,5 @@
+@import "vars.scss";
+
 .mainContainer > .container {
   align-items: center;
   grid-area: container;
@@ -22,37 +24,95 @@
     ;
 
     h1 {
-      position: relative;
-      animation-name: Welcome;
-      animation-duration: 2s;
+      //position: relative;
+      //animation-name: Welcome;
+      //animation-duration: 2s;
       grid-area: title;
       font-size: 100px;
     }
 
     p {
-      position: relative;
-      animation-name: Welcome;
-      animation-duration: 2s;
+      //position: relative;
+      //animation-name: Welcome;
+      //animation-duration: 2s;
       grid-area: about;
     }
   }
 
   main {
     grid-area: main;
+    margin-top: 50px;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: 80%;
+    grid-template-rows: 30px auto;
+    grid-template-areas:
+      "title"
+      "contentBoard"
+    ;
+
+    h2 {
+      text-align: center;
+      grid-area: title;
+    }
+
+    .containerBoard {
+      border-top: solid 1px $primary_border_color;
+      padding: 20px;
+      grid-area: contentBoard;
+      display: grid;
+      grid-template-columns: repeat(5, 20%); 
+      grid-template-rows: auto;
+      justify-content: center;
+
+      .boardStructure {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        display: grid;
+        justify-content: center;
+        grid-template-columns: 100%;
+        grid-template-rows: 30px auto;
+        grid-template-areas:
+          "boardTitle"
+          "boardContent"
+        ;
+
+        h3 {
+          border-bottom: solid 1px $primary_border_color;
+          padding-left: 10px;
+          margin-right: 15px;
+          grid-area: boardTitle;
+        }
+
+        ul {
+          padding-top: 5px;
+          list-style-type: disc;
+          margin-left: 40px;
+          min-height: 100px;
+          grid-area: boardContent;
+
+          a {
+            text-decoration: none;
+          }
+
+          a:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
   }
 }
 
-
+/*
 @keyframes Welcome {
   0% {
-    left:0px;
-    top:200px;
+    top: 200px;
     opacity: 0;
   }
 
   100% {
-    left:0px;
-    top:0px;
+    top: 0px;
     opacity: 1;
   }
-}
+}*/

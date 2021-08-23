@@ -3,6 +3,8 @@ defmodule Anonpost.Router do
 
   alias Anonpost.Controllers.Response , as: Resp
   alias Anonpost.Controllers, as: Controll
+  alias Anonpost.Validation, as: Boards
+
   plug(Plug.Parsers,
     parsers: [:urlencoded, :multipart]
   )
@@ -17,7 +19,8 @@ defmodule Anonpost.Router do
       |> Resp.render("home",
       customCSSHeaders: ["home"],
       customScriptHeaders: [],
-      customScriptBody: []
+      customScriptBody: [],
+      boards: Boards.validboards()
     )
   end
 

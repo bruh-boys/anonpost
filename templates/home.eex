@@ -5,6 +5,20 @@
   </header>
 
   <main>
-    Prototype
+    <h2>Boards</h2>
+
+    <div class="containerBoard">
+      <%= Enum.map(boards, fn { title, boardContent } -> %>
+        <div class="boardStructure">
+          <h3> <%= title %> </h3>
+
+          <ul>
+            <%= Enum.map(boardContent, fn board -> %>
+              <li> <a href="/board?board=<%= board %>"> <%= board %> </a> </li>
+            <% end) %>
+          </ul>
+        </div>
+      <% end) %>
+    </div>
   </main>
 </div>
