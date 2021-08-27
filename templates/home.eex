@@ -27,23 +27,3 @@
     </div>
   </main>
 </div>
-
-
-<!--
-<%= Enum.map(boards, fn { title, boardContent } -> %>
-      <div class="boardStructure">
-        <h3> <%= title %> </h3>
-
-        <ul>
-          <%= Enum.map(boardContent, fn board -> %>
-            <li>
-              <div>
-                <a href="/board?board=<%= board %>"> <%= board %>  </a>
-                <i class="fas fa-arrow-right"></i>
-              </div>
-            </li>
-          <% end) %>
-        </ul>
-      </div>
-    <% end) %>
--->
