@@ -1,40 +1,36 @@
 @import "vars.scss";
+@import "defaults.scss";
 
-@import "default.scss";
-
-
-.mainContainer {
+.container {
+  font-size: 20px;
   display: grid;
   grid-template-columns: 100%;
   grid-template-rows: 40px auto 40px;
-  overflow: auto;
-  grid-template-areas:
-    "menu"
-    "container"
-    "footer"
-  ;
+  grid-template-areas: "menu" "mainContainer" "footer";
 
   .menu {
-    font-size: 20px;
     grid-area: menu;
 
     #navbar {
       min-height: 40px;
       max-height: 40px;
-      backdrop-filter: blur(5px);
-      box-shadow: 0px 1px 6px 0px #000;
       background-color: $nav_bg;
-      overflow: hidden;
-      display: grid;
-      grid-template-columns: 30px;
-      grid-template-rows: auto;
-      grid-template-areas:
-        "home"
-      ;
+      box-shadow: 0px 1px 6px 0px #000;
 
       .button {
-        text-align: center;
-        align-self: center;
+        min-height: 40px;
+        max-height: 40px;
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: 40px;
+        grid-template-areas: "button";
+
+        a {
+          text-align: center;
+          align-self: center;
+          text-decoration: none;
+          grid-area: button;
+        }
       }
     }
 
@@ -46,10 +42,9 @@
   }
 
   footer {
-    font-size: 20px;
     background-color: $primary_bg;
     grid-area: footer;
-    padding-top: 10px;
     text-align: center;
+    align-self: center;
   }
 }

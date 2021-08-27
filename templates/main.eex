@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AnonPost</title>
 
+  <!-- Awesome fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <link rel="stylesheet" href="/public/css/main.css">
 
   <%= Enum.map(customCSSHeaders, fn elem -> %>
@@ -19,11 +22,11 @@
 </head>
 <body>
 
-  <div class="mainContainer">
+  <div class="container">
     <div class="menu">
       <div id="navbar">
         <div class="button">
-          <a class="home" href="/">Home</a>
+          <a class="fas fa-home fa-lg" href="/"> ANONPOST </a>
         </div>
       </div>
     </div>
