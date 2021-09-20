@@ -41,6 +41,4 @@ defmodule Anonpost.Database.MongoDB do
     get_connection()
     |> Mongo.find_one(board, %{_id: id})
   end
-
-  # If first function fails, this is executed and returns nil.
 end

@@ -21,10 +21,12 @@
           <div class="board_body">
             <%= Enum.map(board_content, fn board -> %> 
 
-            <div class="board_body_content">
-              <span><%= board %></span>
-              <i class="fa fa-angle-right"></i>
-            </div>
+            <a href="/board?board=<%= board %>">
+              <div class="board_body_content">
+                <span><%= board %></span>
+                <i class="fa fa-angle-right"></i>
+              </div>
+            </a>
 
             <% end) %>
           </div>

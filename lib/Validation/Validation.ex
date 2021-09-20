@@ -9,12 +9,12 @@ defmodule Anonpost.Validation do
   """
   def validboards(),
     do: %{
-      "animals" => ["rats", "monkeys", "cats", "dogs", "pigs", "hourses"],
-      "games" => ["minecraft", "warframe", "call_of_duty"],
-      "languages" => ["spanish", "english"],
-      "programming" => ["haskell", "elixir", "javascript", "typescript", "rust", "golang"],
-      "technology" => ["robotic"],
-      "science" => ["math", "chemistry"]
+      "Animals" => ["Rats", "Monkeys", "Cats", "Dogs", "Pigs", "Horses"],
+      "Games" => ["Minecraft", "Warframe", "Call_of_duty"],
+      "Languages" => ["Español", "English"],
+      "Programming" => ["Haskell", "Elixir", "JavaScript", "TypeScript", "Rust", "Golang"],
+      "Technology" => ["Robotic"],
+      "Science" => ["Math", "Chemistry"]
     }
 
   @doc """
