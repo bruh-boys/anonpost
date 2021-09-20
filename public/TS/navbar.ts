@@ -1,4 +1,4 @@
-const navbar = document.getElementById("navbar"),
+const navbar = document.getElementById("navigation_bar"),
   sticky = navbar!.offsetTop;
 
 window.onscroll = () => cNavBar();

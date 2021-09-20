@@ -1,27 +1,34 @@
-<div class="mainContainer">
-  <header>
-    <h1>Anonpost</h1>
-    <p>Its a simple social network made in elixir</p>
-  </header>
+<div class="container">
+  <div class="welcome">
+    <h1>ANONPOST</h1>
+    <p>Its a simple social network made in elixir.</p>
+  </div>
 
   <main>
-    <div class="boardsContainer">
-      <h2> Boards </h2>
+    <div class="board_section">
+      <div class="board_section_title">
+        <h2>Boards</h2>
+      </div>
 
-      <div class="boardContainer">
-        <%= Enum.map(boards, fn { boardTitle, boardContent } -> %>
-          <div class="boardStructure">
-            <h3> <%= boardTitle %> </h3>
-
-            <ul> <%= Enum.map(boardContent, fn board -> %>
-              <li> <div>
-                <a href="/board?board=<%= board %>">
-                  <p> <%= board %> </p>
-                  <i class="fas fa-link fa-xs"></i>
-                </a>
-              </div> </li>
-            <% end) %> </ul>
+      <div class="boards">
+        <%= Enum.map(boards, fn { board_title, board_content } -> %>
+        <div class="board">
+          <div class="board_head">
+            <h3><%= board_title %></h3>
+            <hr />
           </div>
+
+          <div class="board_body">
+            <%= Enum.map(board_content, fn board -> %> 
+
+            <div class="board_body_content">
+              <span><%= board %></span>
+              <i class="fa fa-angle-right"></i>
+            </div>
+
+            <% end) %>
+          </div>
+        </div>
         <% end) %>
       </div>
     </div>

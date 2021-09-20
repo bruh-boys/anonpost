@@ -1,0 +1,16 @@
+.board_section
+  display: grid
+  grid-area: board_section
+  grid-template-areas: "board_section_title" "boards"
+  grid-template-columns: 100%
+  grid-template-rows: 45px auto
+  align-items: center
+
+  .board_section_title
+    grid-area: board_section_title
+
+    h2
+      font-size: $secondary_title
+      text-align: center
+
+  @import "board.sass"

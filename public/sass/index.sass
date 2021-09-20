@@ -1,0 +1,11 @@
+@import "defaults.sass"
+@import "vars.sass"
+
+.grid_container
+  display: grid
+  grid-template-areas: "navigation_bar" "container"
+  grid-template-columns: 100%
+  grid-template-rows: 45px auto
+  background: $primary_background
+
+  @import "templates/navigation/navigation_bar.sass"

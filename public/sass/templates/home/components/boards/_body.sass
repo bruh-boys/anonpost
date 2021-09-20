@@ -1,0 +1,25 @@
+.board_body
+  grid-area: board_body
+  row-gap: $primary_row_gap
+
+  .board_body_content
+    display: grid
+    grid-template-areas: "board_body_span board_body_i"
+    grid-auto-columns: 80% 20%
+    grid-template-rows: auto
+    padding: $primary_padding
+    font-size: $primary_text
+
+    span
+      grid-area: board_body_span
+
+    i
+      margin-left: primary_margin_left
+      grid-area: board_body_i
+      animation: board_body_arrow 1.5s infinite forwards
+
+  .board_body_content:hover
+    border-radius: 15px
+    border: 1px solid #ccc
+
+@import "animations.sass"

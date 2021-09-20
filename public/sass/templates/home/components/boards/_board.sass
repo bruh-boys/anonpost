@@ -1,0 +1,20 @@
+.boards
+  display: grid
+  grid-area: boards
+  grid-template-columns: repeat(3, 25%)
+  column-gap: 20px
+  padding-bottom: 20px
+  padding-top: 20px
+  justify-content: center
+  align-content: center
+  
+  .board
+    display: grid
+    grid-template-areas: "board_head" "board_body"
+    grid-template-columns: 100%
+    grid-template-rows: 40px auto
+    margin-left: $primary_margin_left
+    padding-top: 20px
+
+  @import "head.sass"
+  @import "body.sass"
