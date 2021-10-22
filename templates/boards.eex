@@ -51,6 +51,7 @@
           username: "$username"
         }
       -->
+      <%=if not Enum.empty?(publications) do%>
       <div id="post-container">
         <div id="post">
           <%= Enum.map(publications,fn i -> %>
@@ -74,6 +75,7 @@
         </div>
       </div>
     </div>
+    <%end %>
   </div>
 
 
