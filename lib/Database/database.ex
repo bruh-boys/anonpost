@@ -7,9 +7,8 @@ defmodule Anonpost.Database do
     this is running in local so if u want to deploy this maybe it could be a little bit insecure
   """
 
-  def upload_to_db(publ, board) do
-    Post.struct_to_map(publ)
-    |> DB.upload_to_db(board)
+  def upload_to_db(publ) do
+    Post.struct_to_map(publ)|> DB.upload_to_db()
   end
 
   def get_publications(board) do

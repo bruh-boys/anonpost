@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="/public/css/boards.css">
 <div id="title">
   <canvas id="board-animation" height=800></canvas>
 
@@ -84,5 +85,3 @@
 
   <div id="index"></div>
 </div>
-
-<footer align="center"> © ranon-rat 2021 </footer>

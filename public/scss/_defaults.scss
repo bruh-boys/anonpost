@@ -23,3 +23,10 @@
 body {
   background-color: $primary_bg;
 }
+
+textarea,input{
+  background-color: #404040;
+  border:none;
+  width: 20em;
+}
+

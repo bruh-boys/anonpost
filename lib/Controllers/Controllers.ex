@@ -13,13 +13,15 @@ defmodule Anonpost.Controllers do
     board = params["board"]
     # and now we check if is on board
     isOn = Valid.isOnBoards?(board)
+    publ= DB.get_publications(board)
+    IO.inspect(publ)
     # then we send a file with a template
     # or send a 404 response
     if isOn do
       Resp.render(conn, "boards",
         board_title: board,
         req_url: "#{conn.request_path}?#{conn.query_string}",
-        publications: DB.get_publications(board),
+        publications: publ,
         customCSSHeaders: ["index", "publicate"],
         customScriptHeaders: [],
         customScriptBody: []
@@ -35,10 +37,11 @@ defmodule Anonpost.Controllers do
   @spec upload(Plug.Conn.t()) :: Plug.Conn.t()
   def upload(conn) do
     board = conn.params["board"]
-    params = Post.getAttr(conn)
+    params = Post.getAttr(conn, board)
+    IO.inspect(params)
 
     unless Enum.member?(Map.values(params), "") or !Valid.isOnBoards?(conn.params["board"]) do
-      DB.upload_to_db(params, board)
+      DB.upload_to_db(params)
 
       conn
       |> Resp.send_resp(200, "everything is okay")

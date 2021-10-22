@@ -33,9 +33,6 @@
 
     <%= template %>
 
-    <footer>
-      <p> &copy bruh-boys 2021</p>
-    </footer>
   </div>
 
 

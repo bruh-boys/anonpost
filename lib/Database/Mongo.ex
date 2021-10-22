@@ -10,19 +10,26 @@ defmodule Anonpost.Database.MongoDB do
     conn
   end
 
-  def upload_to_db(publ, board) do
+  def upload_to_db(publ) do
     conn = get_connection()
+    IO.inspect(publ)
 
     conn
     |> Mongo.insert_one!(
-      board,
-      publ |> Map.put(:_id ,BSON.ObjectId.encode!(Mongo.IdServer.new()))
+      "post",
+      publ |> Map.put(:_id, BSON.ObjectId.encode!(Mongo.IdServer.new()))
     )
   end
 
   def get_publications(board) do
     get_connection()
-    |> Mongo.aggregate(board, [
+    |> Mongo.aggregate("post", [
+      %{
+        "$match"=>%{
+          board: board,
+          replygin_to: "no one"
+        }
+      },
       %{
         "$project" => %{
           comments: %{
@@ -37,9 +44,10 @@ defmodule Anonpost.Database.MongoDB do
   end
 
   # Gets the post of a specific board.
+
   def get_post(%{board: board, id: id}) do
     get_connection()
-    |> Mongo.find_one(board, %{_id: id})
+    |> Mongo.find_one("posts", %{board: board, _id: id})
   end
 
   # If first function fails, this is executed and returns nil.
