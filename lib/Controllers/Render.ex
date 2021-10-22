@@ -29,7 +29,7 @@ defmodule Anonpost.Controllers.Response do
 
     renderedFile =
       @template_dir
-      |> Path.join("main.eex")
+      |> Path.join("index.eex")
       |> EEx.eval_file([template: body] ++ assigns)
 
     Plug.Conn.send_resp(conn, status || 200, renderedFile)

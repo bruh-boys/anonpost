@@ -1,0 +1,15 @@
+@import "../../defaults.sass"
+@import "../../vars.sass"
+
+.container
+  display: grid
+  grid-area: container
+  grid-template-areas: "header" "main"
+  grid-template-columns: 100%
+  grid-template-rows: 100vh auto
+  justify-content: center
+  align-content: end
+  align-items: end
+
+  @import "components/header.sass"
+  @import "components/main.sass"

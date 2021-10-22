@@ -9,10 +9,10 @@
   <!-- Awesome fonts -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <link rel="stylesheet" href="/public/css/main.css">
+  <link rel="stylesheet" href="/public/css/index.css">
 
   <%= Enum.map(customCSSHeaders, fn elem -> %>
-    <link rel="stylesheet" href="/public/css/<%= elem %>.css">
+    <link rel="stylesheet" href="/public/css/templates/<%= elem %>/index.css">
   <% end) %>
 
   <%= Enum.map(customScriptHeaders, fn elem -> %>
@@ -22,14 +22,14 @@
 </head>
 <body>
 
-  <div class="container">
-    <div class="menu">
-      <div id="navbar">
-        <div class="button">
-          <a class="fas fa-home fa-lg" href="/"> ANONPOST </a>
-        </div>
-      </div>
-    </div>
+  
+  <div class="grid_container">
+    <nav class="navigation_bar" id="navigation_bar">
+      <ul>
+        <li><a href="/"><i class="fas fa-home fa-2x"></i></a></li>
+        <li><a href=""><i class="fas fa-random fa-2x"></i></a></li>
+      </ul>
+    </nav>
 
     <%= template %>
 
