@@ -14,17 +14,19 @@
         <%= Enum.map(boards, fn { board_title, board_content } -> %>
         <div class="board">
           <div class="board_head">
+
             <h3><%= board_title %></h3>
             <hr />
           </div>
 
           <div class="board_body">
-            <%= Enum.map(board_content, fn board -> %> 
-
+            <%= Enum.map(board_content, fn board -> %>
+          <a href= <%="/board?board=#{board}"%>>
             <div class="board_body_content">
               <span><%= board %></span>
               <i class="fa fa-angle-right"></i>
             </div>
+            </a>
 
             <% end) %>
           </div>
