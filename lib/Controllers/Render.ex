@@ -13,7 +13,9 @@ defmodule Anonpost.Controllers.Response do
   def send_resp(conn, status, value) do
     conn |> Conn.send_resp(status, value)
   end
-
+  def put_resp_content_type(conn,header) do
+  conn|>Conn.put_resp_content_type(header)
+  end
   @spec send_file(Plug.Conn.t(), integer, binary) :: Plug.Conn.t()
   def send_file(conn, status, path) do
     conn |> Conn.send_file(status, path)

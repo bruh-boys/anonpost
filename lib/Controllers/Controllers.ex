@@ -53,8 +53,13 @@ defmodule Anonpost.Controllers do
 
   def public_files(conn) do
     # this is for get get the files
-    conn
-    |> Resp.send_file(200, Valid.check404Files("." <> conn.request_path))
+    path=conn.request_path
+    IO.inspect(Enum.at(String.split(path,"/"),2))
+    case Enum.at(String.split(path,"/"),2)do
+      "images"->Resp.put_resp_content_type(conn,"image/gif")
+
+      _-> conn
+    end|> Resp.send_file(200, Valid.check404Files("." <> conn.request_path))
   end
 
   def get_post(conn) do
