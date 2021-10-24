@@ -1,5 +1,6 @@
 
 <link rel="stylesheet" href="/public/css/boards.css">
+<link rel="stylesheet" href="/public/css/boards/index.css">
 <div id="title">
 
   <canvas id="board-animation" height=500></canvas>
@@ -13,7 +14,7 @@
 <div id="container">
   <div>
     <div id="publicate">
-      <h1>publicate something</h1>
+      <h1 align="center">publicate something</h1>
 
       <form action="<%=req_url%>" method="post">
         <div>

@@ -31,6 +31,11 @@ defmodule Anonpost.Database.MongoDB do
         }
       },
       %{
+        "$sort"=>%{
+          time: -1
+        }
+      },
+      %{
         "$project" => %{
           comments: %{
             "$size" => "$comments"

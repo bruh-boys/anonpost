@@ -5,6 +5,7 @@ defmodule Anonpost.Domain.Post do
               username: "anon",
               title: "404 not found",
               body: "404 not found",
+              time: DateTime.utc_now |>DateTime.to_unix,
               comments: []
   end
 
@@ -16,7 +17,8 @@ defmodule Anonpost.Domain.Post do
       board: board,
       username: if(username == "", do: "anon", else: username),
       title: params["title"],
-      body: params["body"]
+      body: params["body"],
+      time: DateTime.utc_now |>DateTime.to_unix
     }
   end
   def struct_to_map(publ) do
