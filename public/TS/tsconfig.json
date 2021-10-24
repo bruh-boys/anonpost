@@ -1,12 +1,14 @@
 {
   "compilerOptions": {
     "target": "es6",
-    "module": "commonjs",
+    "module": "es2020",
     "outDir": "../JS",
     "rootDir": ".",
     "strict": true,
     "esModuleInterop": true,
+    "removeComments": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node"
   }
 }

@@ -41,6 +41,7 @@ defmodule Anonpost.Router do
   end
 
   match _ do
+    IO.puts(conn.request_path)
     conn |> send_file(404, "./view/404.html")
   end
 end

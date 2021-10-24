@@ -1,9 +1,11 @@
+
 <link rel="stylesheet" href="/public/css/boards.css">
 <div id="title">
-  <canvas id="board-animation" height=800></canvas>
+
+  <canvas id="board-animation" height=500></canvas>
 
   <script src="/public/JS/canvasAnimation.js">
-    coolAnimation(params.get("board"))
+
   </script>
 </div>
 
@@ -87,3 +89,4 @@
 
   <div id="index"></div>
 </div>
+<footer><p align="center">a</p></footer>

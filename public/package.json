@@ -1,0 +1,14 @@
+{
+  "name": "anonpost-public",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "ranon-rat",
+  "license": "ISC",
+  "description": "some basic stuff for do this work",
+  "dependencies": {
+    "gifuct-js": "2.1.1"
+  }
+}

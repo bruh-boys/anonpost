@@ -12,7 +12,7 @@ defmodule Anonpost.Validation do
       "animals" => ["rats", "monkeys", "cats", "dogs"],
       "games" => ["minecraft", "warframe", "call_of_duty"],
       "languages" => ["español", "english"],
-      "programming" => ["haskell", "elixir", "javascript", "typescript", "rust", "golang","c++","java"],
+      "programming" => ["haskell", "elixir", "javascript", "typescript", "rust", "golang","cpp","java"],
       "technology" => ["robotic","IoT","crypto","systems","hardware","hacking"],
       "science" => ["math", "chemistry","physics"],
       "other"=>["random","genz","espressif_supremacy"]
