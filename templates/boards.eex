@@ -17,19 +17,19 @@
 
       <form action="<%=req_url%>" method="post">
         <div>
-          <input type="text" name="username" placeholder="username" id="username" /><br>
+          <input type="text" name="username" placeholder="username" id="username" class="input-publ"/><br>
         </div>
 
         <div>
-          <input type="text" name="title" placeholder="title" id="title-publication" /><br>
+          <input type="text" name="title" placeholder="title" id="title-publication" class="input-publ" /><br>
         </div>
 
         <div>
-          <textarea name="body" placeholder="body"></textarea><br>
+          <textarea name="body" placeholder="body" class="input-publ"></textarea><br>
         </div>
 
         <div>
-          <input type="submit" id="submit-bottom" value="submit" /><br>
+          <input type="submit" id="submit-bottom" value="submit"  /><br>
         </div>
       </form>
     </div>
@@ -89,4 +89,4 @@
 
   <div id="index"></div>
 </div>
-<footer><p align="center">a</p></footer>
+<footer><p align="center">©bruh-boys 2021</p></footer>
