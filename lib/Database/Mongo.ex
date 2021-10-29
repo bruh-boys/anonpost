@@ -3,6 +3,7 @@ defmodule Anonpost.Database.MongoDB do
     we are using mongodb for this
     this is running in local so if u want to deploy this maybe it could be a little bit insecure
   """
+  @posts_storage "post"
   defp get_connection() do
     # TODO: use a .env file for loading mongo uri
     # change "localhost" for "mongodb" when using docker
@@ -16,14 +17,14 @@ defmodule Anonpost.Database.MongoDB do
 
     conn
     |> Mongo.insert_one!(
-      "post",
+      @posts_storage ,
       publ |> Map.put(:_id, BSON.ObjectId.encode!(Mongo.IdServer.new()))
     )
   end
 
   def get_publications(board) do
     get_connection()
-    |> Mongo.aggregate("post", [
+    |> Mongo.aggregate(@posts_storage , [
       %{
         "$match"=>%{
           board: board,
@@ -50,9 +51,9 @@ defmodule Anonpost.Database.MongoDB do
 
   # Gets the post of a specific board.
 
-  def get_post(%{board: board, id: id}) do
+  def get_post(%{ id: id}) do
     get_connection()
-    |> Mongo.find_one("posts", %{board: board, _id: id})
+    |> Mongo.find_one(@posts_storage , %{ _id: id})
   end
 
   # If first function fails, this is executed and returns nil.

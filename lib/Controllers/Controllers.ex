@@ -60,14 +60,16 @@ defmodule Anonpost.Controllers do
 
   def get_post(conn) do
     params = conn.params
+
     # Gets the post of a specific board.
     post =
       DB.get_post(%{
-        board: params["board"],
+
         id: params["id"]
       })
+    IO.inspect(post)
 
-    IO.inspect(conn)
+
     # Temporarily only responds if its correct.
     if post do
       conn

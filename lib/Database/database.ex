@@ -17,8 +17,8 @@ defmodule Anonpost.Database do
   end
 
   # Gets the post of a specific board.
-  def get_post(%{board: board, id: id}) when board != nil and id != nil do
-    DB.get_post(%{board: board, id: id})
+  def get_post(%{ id: id}) when  id != nil do
+    DB.get_post(%{ id: id})
   end
 
   # If first function fails, this is executed and returns nil.

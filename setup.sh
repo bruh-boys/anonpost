@@ -1,5 +1,6 @@
-cd public/TS
+cd private/TS
 tsc --build tsconfig.json
 cd ..
-sass  scss:css
+
+sass  sass:../public/css
 cd ..
