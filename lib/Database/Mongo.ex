@@ -42,7 +42,8 @@ defmodule Anonpost.Database.MongoDB do
             "$size" => "$comments"
           },
           title: "$title",
-          username: "$username"
+          username: "$username",
+          body: "$body"
         }
       }
     ])

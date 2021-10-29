@@ -76,6 +76,9 @@
               <%=i["comments"]%>
               </span>
               </h1>
+              <p style="font-size: 10px;">
+              preview: <%=String.slice(i["body"],0,40)%>
+              </p>
             </div>
             </a>
             <% end) %>
