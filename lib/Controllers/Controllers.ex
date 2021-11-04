@@ -13,7 +13,7 @@ defmodule Anonpost.Controllers do
     board = params["board"]
     # and now we check if is on board
     isOn = Valid.isOnBoards?(board)
-    publ= DB.get_publications(board)
+    publ = DB.get_publications(board)
 
     # then we send a file with a template
     # or send a 404 response
@@ -22,7 +22,7 @@ defmodule Anonpost.Controllers do
         board_title: board,
         req_url: "#{conn.request_path}?#{conn.query_string}",
         publications: publ,
-        customCSSHeaders: ["index", "publicate","boards"],
+        customCSSHeaders: ["index", "publicate", "boards"],
         customScriptHeaders: [],
         customScriptBody: ["canvasAnimation"]
       )
@@ -39,7 +39,6 @@ defmodule Anonpost.Controllers do
     board = conn.params["board"]
     params = Post.getAttr(conn, board)
 
-
     unless Enum.member?(Map.values(params), "") or !Valid.isOnBoards?(conn.params["board"]) do
       DB.upload_to_db(params)
 
@@ -55,7 +54,7 @@ defmodule Anonpost.Controllers do
   def public_files(conn) do
     # this is for get get the files
 
-    conn|> Resp.send_file(200, Valid.check404Files("." <> conn.request_path))
+    conn |> Resp.send_file(200, Valid.check404Files("." <> conn.request_path))
   end
 
   def get_post(conn) do
@@ -64,26 +63,22 @@ defmodule Anonpost.Controllers do
     # Gets the post of a specific board.
     post =
       DB.get_post(%{
-
         id: params["id"]
       })
-IO.inspect(post)
-
-
 
     # Temporarily only responds if its correct.
     if post do
-
-      Resp.render(conn,"posts",
-      board: post["board"],
-      id: post["_id"],
-      title: post["title"],
-      content: post["body"],
-      username: post["username"],
-      req_url: "#{conn.request_path}?#{conn.query_string}",
-      customCSSHeaders: ["index", "publicate","post"],
-      customScriptHeaders: [],
-      customScriptBody: [])
+      Resp.render(conn, "posts",
+        board: post["board"],
+        id: post["_id"],
+        title: post["title"],
+        content: post["body"],
+        username: post["username"],
+        req_url: "#{conn.request_path}?#{conn.query_string}",
+        customCSSHeaders: ["index", "publicate", "post"],
+        customScriptHeaders: [],
+        customScriptBody: []
+      )
     else
       conn
       |> Resp.send_file(404, "./view/404.html")

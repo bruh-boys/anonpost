@@ -13,7 +13,7 @@
 
 </p>
 <h1><%=title%></h1>
-<p><%=content%></p>
+<p style="width:20em"><%=content%></p>
 
 
 
