@@ -14,7 +14,7 @@ defmodule Anonpost.Controllers do
     # and now we check if is on board
     isOn = Valid.isOnBoards?(board)
     publ= DB.get_publications(board)
-    IO.inspect(publ)
+
     # then we send a file with a template
     # or send a 404 response
     if isOn do
@@ -22,9 +22,9 @@ defmodule Anonpost.Controllers do
         board_title: board,
         req_url: "#{conn.request_path}?#{conn.query_string}",
         publications: publ,
-        customCSSHeaders: ["index", "publicate"],
+        customCSSHeaders: ["index", "publicate","boards"],
         customScriptHeaders: [],
-        customScriptBody: []
+        customScriptBody: ["canvasAnimation"]
       )
     else
       Resp.send_file(conn, 404, "./view/404.html")
@@ -67,13 +67,23 @@ defmodule Anonpost.Controllers do
 
         id: params["id"]
       })
-    IO.inspect(post)
+IO.inspect(post)
+
 
 
     # Temporarily only responds if its correct.
     if post do
-      conn
-      |> Resp.send_resp(200, "correct")
+
+      Resp.render(conn,"posts",
+      board: post["board"],
+      id: post["_id"],
+      title: post["title"],
+      content: post["body"],
+      username: post["username"],
+      req_url: "#{conn.request_path}?#{conn.query_string}",
+      customCSSHeaders: ["index", "publicate","post"],
+      customScriptHeaders: [],
+      customScriptBody: [])
     else
       conn
       |> Resp.send_file(404, "./view/404.html")

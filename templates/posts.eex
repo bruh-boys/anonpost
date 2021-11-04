@@ -1,0 +1,20 @@
+
+<div class="publication">
+<p>
+    <span style="color:#0081FF"><%=username%></span>
+
+    <a href= <%="/board?board="<>board %>>
+    <span style="color:#00C8FF"><%=board%>
+
+    </span>
+    </a>
+
+    <span style="color:#FF00EE"><%=id %></span>
+
+</p>
+<h1><%=title%></h1>
+<p><%=content%></p>
+
+
+
+</div>

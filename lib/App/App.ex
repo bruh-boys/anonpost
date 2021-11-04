@@ -4,9 +4,10 @@ defmodule Anonpost.App do
   require Logger
   @impl true
   def start(_type, _args) do
+    port=System.get_env("port","8080")
 
     children = [
-      {Plug.Cowboy, scheme: :http, plug: Anonpost.Router, options: [port: 8080]}
+      {Plug.Cowboy, scheme: :http, plug: Anonpost.Router, options: [port: String.to_integer(port)]}
     ]
 
     Logger.info("starting application at http://localhost:8080")

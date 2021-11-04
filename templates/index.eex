@@ -32,7 +32,7 @@
     </nav>
 
     <%= template %>
-
+  <footer><p align="center">©bruh-boys 2021</p></footer>
   </div>
 
 
