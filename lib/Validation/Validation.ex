@@ -2,7 +2,7 @@ defmodule Anonpost.Validation do
   @moduledoc """
   Im making the module for verify some stuff , like if the file exist or if the board is avaible
 
-
+#a
   """
   @doc """
   This function only works for get the avaible boards on anonpost and thats all
