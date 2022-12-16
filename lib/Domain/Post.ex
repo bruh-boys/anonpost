@@ -8,7 +8,7 @@ defmodule Anonpost.Domain.Post do
               time: DateTime.utc_now |>DateTime.to_unix,
               comments: []
   end
-
+#æa
   def getAttr(conn,board) do
     params = conn.params
     username = String.trim (params["username"])
