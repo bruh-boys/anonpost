@@ -3,7 +3,7 @@
     <h1>ANONPOST</h1>
     <p>Its a simple social network made in elixir.</p>
   </div>
-
+<!---->
   <main>
     <div class="board_section">
       <div class="board_section_title">
