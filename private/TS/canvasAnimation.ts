@@ -1,6 +1,6 @@
 
 //@ts-nocheck
-
+//
 let canvas: HTMLCanvasElement = document.getElementById("board-animation") as HTMLCanvasElement;
 const ctx = canvas.getContext("2d")!;
 const params = new URLSearchParams(window.location.search);
