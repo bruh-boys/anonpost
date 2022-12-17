@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="/public/css/boards.css">
 <link rel="stylesheet" href="/public/css/boards/index.css">
 <div id="title">
-
+<!---->
   <canvas id="board-animation" height=500></canvas>
 
   <script src="/public/JS/canvasAnimation.js">
